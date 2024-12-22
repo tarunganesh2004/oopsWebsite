@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #444;
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        code {
+            display: block;
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 4px solid #333;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Object-Oriented Programming Concepts</h1>
+    </header>
+    <nav>
+        <a href="#class-object">Class & Object</a>
+        <a href="#encapsulation">Encapsulation</a>
+        <a href="#inheritance">Inheritance</a>
+        <a href="#polymorphism">Polymorphism</a>
+        <a href="#abstraction">Abstraction</a>
+        <a href="#constructors">Constructors</a>
+        <a href="#interfaces">Interfaces</a>
+    </nav>
+    <div class="container">
+        <section id="class-object">
+            <h2>Class and Object</h2>
+            <p>A <strong>class</strong> is a blueprint for creating objects, providing initial values for state
+                (attributes) and implementations of behavior (methods).</p>
+            <p>An <strong>object</strong> is an instance of a class, representing a real-world entity with unique
+                attributes and behavior.</p>
+            <h3>Example:</h3>
+            <code>
+class Car {
+    String model;
+    int year;
+
+    void displayDetails() {
+        System.out.println("Model: " + model + ", Year: " + year);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        car1.model = "Toyota";
+        car1.year = 2020;
+        car1.displayDetails();
+    }
+}
+            </code>
+        </section>
+
+        <section id="encapsulation">
+            <h2>Encapsulation</h2>
+            <p>Encapsulation is the process of wrapping data and methods into a single unit, typically a class. It helps
+                to protect the data from unauthorized access.</p>
+            <h3>Example:</h3>
+            <code>
+class Student {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+            </code>
+        </section>
+
+        <section id="inheritance">
+            <h2>Inheritance</h2>
+            <p>Inheritance allows a class to inherit properties and methods from another class. It enables code reuse
+                and hierarchical relationships.</p>
+            <h3>Types of Inheritance:</h3>
+            <ul>
+                <li>Single Inheritance</li>
+                <li>Multilevel Inheritance</li>
+                <li>Hierarchical Inheritance</li>
+                <li>Multiple Inheritance (through interfaces)</li>
+            </ul>
+            <h3>Example:</h3>
+            <code>
+class Animal {
+    void sound() {
+        System.out.println("This is an animal sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Woof Woof");
+    }
+}
+            </code>
+        </section>
+
+        <section id="polymorphism">
+            <h2>Polymorphism</h2>
+            <p>Polymorphism allows methods to perform different tasks based on the object that calls them. It can be
+                achieved through method overloading and overriding.</p>
+            <h3>Example:</h3>
+            <code>
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Meow");
+    }
+}
+            </code>
+        </section>
+
+        <section id="abstraction">
+            <h2>Abstraction</h2>
+            <p>Abstraction is the process of hiding the implementation details and showing only the functionality. It
+                can be achieved using abstract classes and interfaces.</p>
+            <h3>Example:</h3>
+            <code>
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+class Rectangle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+}
+            </code>
+        </section>
+
+        <section id="constructors">
+            <h2>Constructors</h2>
+            <p>Constructors are special methods used to initialize objects. They have the same name as the class and no
+                return type.</p>
+            <h3>Types of Constructors:</h3>
+            <ul>
+                <li><strong>Default Constructor:</strong> Initializes objects with default values.</li>
+                <li><strong>Parameterized Constructor:</strong> Allows passing parameters to initialize objects with
+                    specific values.</li>
+                <li><strong>Copy Constructor:</strong> Creates a new object as a copy of an existing object.</li>
+            </ul>
+            <h3>Example:</h3>
+            <code>
+class Person {
+    String name;
+
+    // Default Constructor
+    Person() {
+        this.name = "Unknown";
+    }
+
+    // Parameterized Constructor
+    Person(String name) {
+        this.name = name;
+    }
+
+    // Copy Constructor
+    Person(Person p) {
+        this.name = p.name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p1 = new Person();
+        System.out.println("Default: " + p1.name);
+
+        Person p2 = new Person("Alice");
+        System.out.println("Parameterized: " + p2.name);
+
+        Person p3 = new Person(p2);
+        System.out.println("Copy: " + p3.name);
+    }
+}
+            </code>
+        </section>
+
+        <section id="interfaces">
+            <h2>Interfaces</h2>
+            <p>Interfaces specify methods that a class must implement. They support multiple inheritance.</p>
+            <h3>Example:</h3>
+            <code>
+interface Animal {
+    void sound();
+}
+
+class Dog implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Woof Woof");
+    }
+}
+
+class Cat implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Meow");
+    }
+}
+            </code>
+            <h3>Difference Between Abstract Class and Interface:</h3>
+            <ul>
+                <li>An abstract class can have concrete methods, while an interface can only have abstract methods
+                    (before Java 8).</li>
+                <li>Classes can inherit multiple interfaces but only one abstract class.</li>
+                <li>Abstract classes support constructors; interfaces do not.</li>
+            </ul>
+        </section>
+
+        <p>For More Theory Click this <a href="oops.pdf">Link</a></p>
+    </div>
+    <footer style="text-align: center; background: #333; color: #fff; padding: 1rem 0; margin-top: 2rem;">
+        <p>&copy; 2024 by TG</p>
+    </footer>
+</body>
+
+</html>
